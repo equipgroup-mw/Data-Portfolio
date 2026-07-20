@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equip Data — Field Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Primary Palette */
+    --navy: #0d2136;          /* Main Background */
+    --gold: #a8935a;          /* Primary Accent */
+    --beige: #d8d0c6;         /* Main Text */
+    --blue-grey: #8a949e;     /* Muted Text */
+    --soft-gold: #d6cab0;     /* Highlights */
+    --light-beige: #e6e1da;   /* Bright Text */
+    --light-grey: #d3d6d9;    /* Borders/Lines */
+    --paper: #f4f2ef;         /* Lightest Text */
+    
+    /* Secondary Palette (for tags/icons) */
+    --plum: #512137;
+    --rust: #7e2138;
+    --green: #2f3527;
+    --sage: #81845a;
+    --turquoise: #004551;
+
+    --bg-panel: rgba(216, 208, 198, 0.05); 
+    --bg-panel-2: rgba(216, 208, 198, 0.08);
+    --line: rgba(216, 208, 198, 0.15);
+    --shadow: 0 20px 45px rgba(0,0,0,0.45);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(169, 148, 91, 0.08), transparent 55%),
+      radial-gradient(ellipse at 85% 20%, rgba(129, 132, 90, 0.06), transparent 50%);
+    color:var(--beige);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; font-weight:500; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--soft-gold);
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px clamp(20px,5vw,60px);
+    backdrop-filter:blur(10px);
+    background:rgba(13, 33, 54, 0.8);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-name{font-family:'Fraunces', serif; font-size:1.05rem; font-weight:500; color:var(--light-beige);}
+  .nav-name span{color:var(--gold);}
+  .nav-links{display:flex; gap:28px; font-size:0.85rem; font-family:'IBM Plex Mono', monospace;}
+  .nav-links a{text-decoration:none; color:var(--blue-grey); transition:color .25s;}
+  .nav-links a:hover{color:var(--soft-gold);}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:120px clamp(20px,6vw,80px) 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    color:var(--sage); letter-spacing:0.06em; margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-tag::before{content:''; width:8px; height:8px; border-radius:50%; background:var(--sage); display:inline-block; box-shadow:0 0 0 4px rgba(129, 132, 90, 0.18);}
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.6rem);
+    line-height:0.98;
+    max-width:16ch;
+    color:var(--paper);
+  }
+  .hero h1 em{font-style:italic; color:var(--gold); font-weight:400;}
+  .hero p.lede{
+    max-width:52ch; margin-top:28px; font-size:1.15rem; color:var(--blue-grey); font-weight:300;
+  }
+  .hero-cta{
+    margin-top:44px; display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
+    padding:14px 26px; border-radius:2px;
+    background:var(--gold); color:var(--navy); text-decoration:none;
+    letter-spacing:0.03em; font-weight:500;
+    transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow:0 10px 25px rgba(169, 148, 91, 0.18);
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(169, 148, 91, 0.28);}
+  .btn-ghost{
+    background:transparent; border:1px solid var(--line); color:var(--beige);
+    box-shadow:none;
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--soft-gold);}
+  .hero-scroll{
+    position:absolute; bottom:36px; left:clamp(20px,6vw,80px);
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--blue-grey);
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-scroll .line{width:36px; height:1px; background:var(--blue-grey);}
+
+  /* ---------- section shell ---------- */
+  section{padding:120px clamp(20px,6vw,80px);}
+  .section-head{max-width:56ch; margin-bottom:64px;}
+  .section-head h2{font-size:clamp(1.9rem, 4vw, 2.8rem); margin-top:14px; color:var(--light-beige);}
+  .section-head p{color:var(--blue-grey); margin-top:16px; font-weight:300; font-size:1.05rem;}
+
+  /* ---------- Story ---------- */
+  .story{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px; align-items:center;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:900px){ .story{grid-template-columns:1fr;} }
+  .portrait-frame{
+    position:relative; transform:rotate(-2.5deg);
+    background:var(--bg-panel-2); padding:14px 14px 46px;
+    box-shadow:var(--shadow); border-radius:2px;
+  }
+  .portrait-slot{
+    aspect-ratio:4/5; background:
+      repeating-linear-gradient(135deg, rgba(216, 208, 198, 0.05) 0 2px, transparent 2px 14px),
+      var(--bg-panel);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--blue-grey); font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-align:center;
+    border:1px dashed var(--line); padding:20px;
+  }
+  .portrait-cap{
+    font-family:'Fraunces', serif; font-style:italic; color:var(--blue-grey);
+    text-align:center; margin-top:14px; font-size:0.92rem;
+  }
+  .story-copy h2{color:var(--light-beige);}
+  .story-copy p{font-size:1.08rem; color:var(--blue-grey); font-weight:300; margin:0 0 20px;}
+  .story-copy p strong{color:var(--paper); font-weight:500;}
+  .story-stats{display:flex; gap:40px; margin-top:36px; flex-wrap:wrap;}
+  .stat b{font-family:'Fraunces', serif; font-size:1.9rem; color:var(--gold); display:block;}
+  .stat span{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--blue-grey); text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* ---------- Work / pinned cards ---------- */
+  .work{border-top:1px solid var(--line);}
+  .grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:50px 40px;
+  }
+  @media (max-width:800px){ .grid{grid-template-columns:1fr;} }
+  .card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    padding:18px 18px 26px;
+    border-radius:3px;
+    transform:rotate(var(--tilt, -1.2deg));
+    transition:transform .35s ease, box-shadow .35s ease;
+    box-shadow:0 14px 30px rgba(0,0,0,0.3);
+    opacity:0; translate:0 24px;
+  }
+  .card.in{opacity:1; translate:0 0; transition:opacity .6s ease, translate .6s ease, transform .35s ease, box-shadow .35s ease;}
+  .card:nth-child(even){--tilt:1.4deg;}
+  .card:hover{transform:rotate(0deg) translateY(-6px); box-shadow:0 24px 50px rgba(0,0,0,0.4); border-color:var(--gold);}
+  .card .pin{
+    width:10px; height:10px; border-radius:50%;
+    background:var(--rust); box-shadow:0 2px 4px rgba(0,0,0,0.4);
+    margin:0 auto 12px;
+  }
+  .media-slot{
+    aspect-ratio:16/10;
+    background:
+      repeating-linear-gradient(135deg, rgba(216, 208, 198, 0.045) 0 2px, transparent 2px 14px),
+      var(--bg-panel-2);
+    border:1px dashed var(--line);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    color:var(--blue-grey); font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-align:center;
+    padding:16px;
+  }
+  .media-slot .icon{font-size:1.4rem;}
+  .card-body{padding:20px 6px 4px;}
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; 
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--soft-gold); 
+    border-left: 3px solid var(--rust);
+    padding-left: 8px;
+  }
+  .card h3{font-size:1.3rem; margin-top:10px; color:var(--paper);}
+  .card p{color:var(--blue-grey); font-size:0.96rem; font-weight:300; margin-top:10px;}
+  .card-foot{margin-top:16px; font-family:'Fraunces', serif; font-style:italic; color:var(--beige); font-size:0.9rem; opacity: 0.8;}
+
+  /* ---------- Farm feature ---------- */
+  .farm{
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg, transparent, rgba(129, 132, 90, 0.06));
+  }
+  .farm-wrap{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  @media (max-width:900px){ .farm-wrap{grid-template-columns:1fr;} }
+  .farm-media{
+    aspect-ratio:5/4;
+    background:
+      repeating-linear-gradient(135deg, rgba(216, 208, 198, 0.05) 0 2px, transparent 2px 14px),
+      var(--bg-panel);
+    border:1px dashed var(--line); border-radius:3px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--blue-grey); font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-align:center; padding:20px;
+  }
+  .farm h2{font-size:clamp(1.9rem,4vw,2.6rem); color:var(--light-beige);}
+  .farm p{color:var(--blue-grey); font-weight:300; font-size:1.05rem; margin-top:18px;}
+
+  /* ---------- Contact ---------- */
+  .contact{border-top:1px solid var(--line); text-align:center;}
+  .contact h2{font-size:clamp(2rem,5vw,3.4rem); max-width:20ch; margin:0 auto; color:var(--paper);}
+  .contact p{color:var(--blue-grey); margin-top:18px; font-weight:300;}
+  .contact-links{
+    margin-top:44px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  }
+  footer{
+    padding:36px clamp(20px,6vw,80px); border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--blue-grey);
+  }
+
+  .reveal{opacity:0; translate:0 20px; transition:opacity .7s ease, translate .7s ease;}
+  .reveal.in{opacity:1; translate:0 0;}
+  
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .card { opacity: 1; translate: 0; transition: none; transform: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Equip <span>Data</span></div>
+  <div class="nav-links">
+    <a href="#story">About</a>
+    <a href="#work">Work</a>
+    <a href="#elim">Elim Farms</a>
+    <a href="#contact">Say Hello</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Lilongwe, Malawi</div>
+  <h1>Converting <em>data</em> into stories<br>people actually act on.</h1>
+  <p class="lede">Four experts. One mission. Equip’s Data Division transforms raw data into clear insights, compelling stories, and actionable intelligence—without needing a data science degree to read it.</p>
+  <div class="hero-cta">
+    <a href="#work" class="btn">See the work</a>
+    <a href="#contact" class="btn btn-ghost">Get in touch</a>
+  </div>
+  <div class="hero-scroll"><span class="line"></span>scroll to keep reading</div>
+</section>
+
+<section class="story" id="story">
+  <div class="portrait-frame reveal">
+    <div class="portrait-slot">📊<br><br>team photo or data visualization<br><span style="opacity:.6">(4:5, clean graphics work best)</span></div>
+    <div class="portrait-cap">Where analytical rigour meets strong visual design.</div>
+  </div>
+  <div class="story-copy reveal">
+    <div class="eyebrow">Chapter one — Who we are</div>
+    <h2 style="margin-top:14px; font-size:clamp(1.8rem,4vw,2.5rem);">From numbers to narratives</h2>
+    <p>Our team brings together over <strong>two decades of training and experience</strong> in data analytics, visualisation, research, and data engineering. We deliver practical solutions across media, development, and operational contexts.</p>
+    <p>We specialise in data-driven storytelling—combining analytical rigour with strong visual design to help organisations communicate complex information clearly, build trust, and drive informed decision-making. We take something complicated and make it simple enough that a non-technical person can look at it and immediately know what to do next.</p>
+    <div class="story-stats">
+      <div class="stat"><b>4</b><span>experts on the team</span></div>
+      <div class="stat"><b>20+</b><span>years combined experience</span></div>
+      <div class="stat"><b>8+</b><span>tools shipped &amp; live</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="section-head reveal">
+    <div class="eyebrow">Chapter two — What we've built</div>
+    <h2>Field notes from real projects</h2>
+    <p>Each of these started as someone's frustration with a spreadsheet, a paper form, or a WhatsApp group. Here's what came after.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card reveal">
+      <div class="pin"></div>
+      <div class="media-slot"><span class="icon">🎞️</span>screenshot or 15–20s screen recording of the dashboard in use</div>
+      <div class="card-body">
+        <div class="card-tag">Agribusiness</div>
+        <h3>Elim Farms Operations Dashboard</h3>
+        <p>A day-to-day operations app for a banana farm — pulling straight from the team's own Google Sheets and turning it into a live dashboard, plus automated PDF reports that go out without anyone lifting a finger.</p>
+        <div class="card-foot">"The report used to take a day to compile. Now it's already done."</div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="pin"></div>
+      <div class="media-slot"><span class="icon">🎞️</span>screenshot or short clip of the poultry alerts / harvest projection view</div>
+      <div class="card-body">
+        <div class="card-tag">Livestock</div>
+        <h3>Poultry Farm Monitor</h3>
+        <p>Live feed-conversion ratios, harvest projections, and early alerts for a poultry operation — so problems get caught while they're still small, not after the numbers come in at the end of the month.</p>
+        <div class="card-foot">"We used to find out something was wrong two weeks too late."</div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="pin"></div>
+      <div class="media-slot"><span class="icon">🎞️</span>screenshot of the price tracker interface across market categories</div>
+      <div class="card-body">
+        <div class="card-tag">Market intelligence</div>
+        <h3>EQUIP Price Tracker</h3>
+        <p>A tool that quietly watches market prices across categories and keeps a running, always-current picture — the kind of thing that used to mean someone manually calling around town.</p>
+        <div class="card-foot">"Now the price check is a glance, not a phone call."</div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="pin"></div>
+      <div class="media-slot"><span class="icon">🗳️</span>screenshot of election data visuals or constituency dashboards</div>
+      <div class="card-body">
+        <div class="card-tag">Civic Tech &amp; Media</div>
+        <h3>2025 Malawi Elections</h3>
+        <p>Data collection, engineering, and presentation work to track and visualize the 2025 Malawi elections — turning dense, fast-moving results into clear, trustworthy narratives the public can easily follow.</p>
+        <div class="card-foot">"Complex information communicated clearly, building trust."</div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="pin"></div>
+      <div class="media-slot"><span class="icon">🗺️</span>map or matrix view showing cooperative structures</div>
+      <div class="card-body">
+        <div class="card-tag">M&amp;E · Nationwide</div>
+        <h3>MAFECO Cooperatives Project</h3>
+        <p>Data collection, engineering, and presentation work behind a nationwide effort to structure and connect farming cooperatives — turning scattered paperwork into something that can actually be planned around.</p>
+        <div class="card-foot">"For the first time, we could see the whole picture at once."</div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="pin"></div>
+      <div class="media-slot"><span class="icon">📈</span>screenshot of market analytics or trade strategy interface</div>
+      <div class="card-body">
+        <div class="card-tag">Economic Development</div>
+        <h3>Buy Malawi Strategy</h3>
+        <p>An analytics and intelligence platform supporting local market growth—tracking supply chains, consumer data, and local production metrics to drive actionable, scalable economic solutions.</p>
+        <div class="card-foot">"Actionable intelligence driving informed decision-making."</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="farm" id="elim">
+  <div class="farm-wrap">
+    <div class="farm-media reveal">🌱<br><br>photo or drone shot of Elim Farms goes here</div>
+    <div class="reveal">
+      <div class="eyebrow">Chapter three — Where it gets tested</div>
+      <h2>Elim Farms</h2>
+      <p>It's where the ideas behind our dashboards actually get tested — because when real operations and crops are on the line, you learn very quickly which numbers matter and which ones are just noise.</p>
+      <p>Everything we build for other people's farms and cooperatives is shaped by what we've learned managing real-world operational data ourselves.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow reveal" style="justify-content:center; display:flex;">Chapter four — Let's talk</div>
+  <h2 class="reveal" style="margin-top:14px;">Have a mess of data<br>that needs a story?</h2>
+  <p class="reveal">We're always glad to hear about a new problem worth solving.</p>
+  <div class="contact-links reveal">
+    <a href="mailto:info@equipgroup.co" class="btn">Email us</a>
+    <a href="https://www.linkedin.com/showcase/equip-data-division/" class="btn btn-ghost">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <span>Equip Group: Data Division — Lilongwe, Malawi</span>
+  <span>Built with data, run on insight.</span>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal, .card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
