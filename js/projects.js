@@ -23,52 +23,52 @@
 
 const PROJECTS = [
   {
-    id: "sme-investment-pipeline",
-    title: "SME Investment Readiness Pipeline",
-    client: "Business Development Services",
-    platform: "Power BI",
-    url: "https://app.powerbi.com/",
-    thumbnail: null,
+    id: "proto-poultry-dashboard",
+    title: "Proto Poultry Growth Monitor",
+    client: "Proto / Hail & Cotton",
+    platform: "Custom Build",
+    url: "https://equipgroup-mw.github.io/proto-chickens-dashboard/",
+    thumbnail: "assets/thumbs/proto.jpg", // Matches proto.jpg
     accent: "gold",
     size: "wide"
   },
   {
-    id: "agribusiness-monitor",
-    title: "Agribusiness & Contract Farming Monitor",
-    client: "AIMS / MUSCCO",
+    id: "dcafs-ngo-impact",
+    title: "NGO's Impact on the Nation",
+    client: "DCAFS & TIPDeP",
     platform: "Power BI",
-    url: "https://app.powerbi.com/",
-    thumbnail: null,
+    url: "https://equipgroup-mw.github.io/DCAFS-dashboard/",
+    thumbnail: "assets/thumbs/m.png", // Matches DCAFS.png
     accent: "navy",
     size: "normal"
   },
   {
-    id: "impact-evaluation-tracker",
-    title: "Impact Evaluation Tracker",
-    client: "Monitoring & Evaluation",
+    id: "hail-cotton-vsla-tracker",
+    title: "VSLA Group Equity Tracker",
+    client: "Hail & Cotton",
     platform: "Looker Studio",
     url: "https://lookerstudio.google.com/",
-    thumbnail: null,
+    thumbnail: "assets/thumbs/H&C.jpg", // Matches H&C.jpg
     accent: "slate",
     size: "tall"
   },
   {
-    id: "womens-enterprise-dashboard",
-    title: "Women-Owned Ventures in Green Energy",
-    client: "Enterprise Development Programme",
+    id: "ngo-impact-on-nation",
+    title: "NGO's Impact on the Nation",
+    client: "Point of Progress",
     platform: "Custom Build",
-    url: "#",
-    thumbnail: null,
+    url: "https://equipgroup-mw.github.io/POP-reach/",
+    thumbnail: "assets/thumbs/popLOGO.png", // Matches popLOGO.png
     accent: "gold",
     size: "normal"
   },
   {
     id: "financial-inclusion-scaling",
     title: "Financial Inclusion & Entrepreneurship Scaling",
-    client: "FINeS",
+    client: "Zantchito",
     platform: "Tableau",
-    url: "#",
-    thumbnail: null,
+    url: "https://equipgroup-mw.github.io/Zantchito/",
+    thumbnail: "assets/thumbs/Z.png", // Matches Z.png
     accent: "navy",
     size: "normal"
   },
@@ -78,28 +78,38 @@ const PROJECTS = [
     client: "Mibawa",
     platform: "Custom Build",
     url: "https://danyankho.github.io/Elections2025-App/",
-    thumbnail: "assets/thumbs/mibawa.png", // Matches mibawa.png
+    thumbnail: "assets/thumbs/mibawa.jpg", // Matches mibawa.jpg
     accent: "gold",
     size: "large"
   },
   {
-    id: "food-processing-capacity",
-    title: "Food Processing SME Capacity Tracker",
-    client: "Alliance for Inclusive & Nutritious Food Processing",
+    id: "youth-entrepreneurship-agriculture",
+    title: "The Youth Entrepreneurship for the Future of Agriculture",
+    client: "MAFECO / AGRA",
     platform: "Looker Studio",
-    url: "#",
-    thumbnail: null,
+    url: "https://equipgroup-mw.github.io/apatsa-dashboard/",
+    thumbnail: "assets/thumbs/mafeco.png", // Matches mafeco.png
     accent: "slate",
     size: "normal"
   },
   {
-    id: "regional-sector-insights",
-    title: "Regional Sector Insights",
-    client: "Portfolio-wide Analysis",
+    id: "elimfarms-productivity-growth",
+    title: "Productivity & Growth of a Mega Farm",
+    client: "Elim Farms",
     platform: "Custom Build",
-    url: "#",
-    thumbnail: null,
+    url: "https://equipgroup-mw.github.io/ElimFarms/",
+    thumbnail: "assets/thumbs/elim.png", // Matches elimfarms.png
     accent: "navy",
     size: "wide"
+  },
+  {
+    id: "ngo-governance",
+    title: "Nationwide Governance of Malawi's NGO's",
+    client: "NGORA",
+    platform: "Custom Build",
+    url: "https://danyankho.github.io/NGORA-dashboard-map/",
+    thumbnail: "assets/thumbs/ngora.png", // Matches ngora.png
+    accent: "navy",
+    size: "normal"
   }
 ];
