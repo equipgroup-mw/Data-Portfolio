@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 70 500 400">
+  <!-- Background Box (Removed from view via viewBox crop) -->
+  <path fill="none" d="M0 0H595.3V595.3H0Z"/>
+  
+  <!-- The Actual "E" Logo (Zoomed in to fill the space) -->
+  <path fill="currentColor" d="M493.9 187 L493.9 110.8 L209.1 110.8 L209.1 186.5 L135.2 186.5 L135.2 262.1 L209.1 262.1 L209.1 322.5 L123.5 322.5 L123.5 428.6 L209.1 428.6 L209.1 486.5 L493.9 486.5 L493.9 410.3 L232 410.3 L232 337.4 L493.9 337.4 L493.9 261.2 L209.3 261.2 L209.3 187 Z M96.4 128 H135.8 V169.4 H96.4 Z"/>
+</svg>

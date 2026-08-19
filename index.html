@@ -1,40 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equip Data Dashboards - Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equip &mdash; Dashboards</title>
+<meta name="description" content="A portfolio of data dashboards built by Equip Group.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Navigation / Header -->
-  <nav class="navbar">
-    <div class="nav-links nav-left">
-      <a href="#">Work</a>
-      <a href="#">About</a>
-      <a href="#">Team</a>
-      <a href="#">Ideas</a>
-      <a href="#">Careers</a>
-    </div>
-    
-    <!-- Equip Logo SVG -->
-    <div class="logo">
-      <img src="assets/vectors/equip-logo.svg" alt="Equip Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x45/0D2136/A8935A?text=EQUIP';">
-    </div>
-    
-    <div class="nav-links nav-right">
-      <a href="#" class="contact-btn">Contact</a>
-    </div>
-  </nav>
+<header class="site-header">
+  <div class="container">
+    <a href="#about" class="nav-link left">About</a>
+    <a href="#top" class="brand-mark" aria-label="Equip home">
+      <img src="assets/logo.png" alt="Equip Group" class="brand-logo">
+    </a>
+    <a href="#contact" class="nav-link right">Contact</a>
+  </div>
+</header>
 
-  <!-- Dynamic Portfolio Grid (Populated by main.js) -->
-  <main class="portfolio-grid" id="portfolio-grid">
-    <!-- JavaScript injects project cards here -->
-  </main>
+<main id="top">
 
-  <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Data &amp; Insights Portfolio</span>
+        <h1>We turn numbers into <em>decisions.</em></h1>
+        <p>A working collection of the dashboards we build for the organisations, SMEs and partners we advise &mdash; tracking performance, impact and opportunity as it happens.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-gold">View the dashboards</a>
+        </div>
+      </div>
+      
+      <div class="hero-icon" aria-hidden="true">
+        <!-- We will load the SVG dynamically via JS to preserve currentColor -->
+        <img id="hero-logo-svg" src="" alt="Equip Logo Projection" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO GRID ============ -->
+  <section class="portfolio" id="work">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Selected Work</span>
+          <h2>Dashboards</h2>
+        </div>
+        <p>Live dashboards from across our engagements. Click any tile to open the full, interactive version in a new tab.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="grid" id="dashboard-grid"><!-- tiles rendered by js/main.js from js/projects.js --></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">About Equip</span>
+        <h2>Tailor-made solutions for how work is changing.</h2>
+
+        <div class="about-block">
+          <div class="label">Our Mission</div>
+          <p>To offer tailor-made management, data and capacity development solutions that prepare organisations and individuals to adapt to the changing nature of work.</p>
+        </div>
+        <div class="about-block">
+          <div class="label">Our Vision</div>
+          <p>To create more efficient organisations with the ability to identify solutions to all their challenges.</p>
+        </div>
+      </div>
+
+      <div>
+        <span class="eyebrow">Core Values</span>
+        <div class="values" style="margin-top:18px;">
+          <div class="value-row"><span class="name">Tailor-made</span><span class="idx">01</span></div>
+          <div class="value-row"><span class="name">Human Development</span><span class="idx">02</span></div>
+          <div class="value-row"><span class="name">Innovation</span><span class="idx">03</span></div>
+          <div class="value-row"><span class="name">Networking</span><span class="idx">04</span></div>
+          <div class="value-row"><span class="name">Knowledge</span><span class="idx">05</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let's talk data.</h2>
+        <p class="contact-lead">Have a dashboard, evaluation or data system you'd like our help with? Reach out &mdash; we'd love to hear about it.</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/company/equip-grp/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.whatsapp.com/channel/0029Vb49T0v8aKvJpsjA6q3H" target="_blank" rel="noopener">Whatsapp</a>
+          <a href="https://www.equipgroup.co/" target="_blank" rel="noopener">Website</a>
+        </div>
+      </div>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <span class="k">Email</span>
+          <a href="mailto:info@equipgroup.co">info@equipgroup.co</a>
+        </div>
+        <div class="contact-item">
+          <span class="k">Phone</span>
+          <a href="tel:+265885303239">+265 885 303 239</a>
+        </div>
+        <div class="contact-item">
+          <span class="k">Address</span>
+          <span class="v">House 109, Keppel Compton Road, Area 3, Lilongwe, Malawi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="#top" class="footer-brand">
+      <svg viewBox="0 0 100 100" fill="none"><rect x="1" y="1" width="98" height="98" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/><rect x="26" y="24" width="14" height="52" fill="currentColor"/><rect x="26" y="24" width="42" height="12" fill="currentColor"/><rect x="26" y="44" width="34" height="12" fill="currentColor"/><rect x="26" y="64" width="42" height="12" fill="currentColor"/></svg>
+      <span>Equip Group</span>
+    </a>
+    <nav class="footer-links">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="footer-copy">&copy; <span id="year"></span> Equip Group. Innovative Solutions, Abundant Future.</span>
+  </div>
+</footer>
+
+<a href="#top" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+
+<script src="js/projects.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
