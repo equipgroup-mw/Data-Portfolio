@@ -126,14 +126,17 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <a href="#top" class="footer-brand">
-      <svg viewBox="0 0 100 100" fill="none"><rect x="1" y="1" width="98" height="98" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/><rect x="26" y="24" width="14" height="52" fill="currentColor"/><rect x="26" y="24" width="42" height="12" fill="currentColor"/><rect x="26" y="44" width="34" height="12" fill="currentColor"/><rect x="26" y="64" width="42" height="12" fill="currentColor"/></svg>
-      <span>Equip Group</span>
-    </a>
-    <nav class="footer-links">
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <!-- New wrapper to group brand and links on the left -->
+    <div class="footer-left">
+      <a href="#top" class="footer-brand">
+        <img src="assets/brandLogo.png" alt="Equip Group" class="brand-logo"/>
+      </a>
+      <nav class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    
     <span class="footer-copy">&copy; <span id="year"></span> Equip Group. Innovative Solutions, Abundant Future.</span>
   </div>
 </footer>

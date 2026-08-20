@@ -568,16 +568,42 @@ body.slowed .hero-pattern {
   color:var(--slate);
   padding:44px 0;
 }
+
 .footer-inner{
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:20px;
+  display: flex;
+  justify-content: space-between; /* Pushes left group and right text to opposite edges */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
-.footer-brand{
-  display:flex; align-items:center; gap:10px; color:var(--beige);
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Space between the logo and the links */
 }
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Make the footer logo a bit smaller to align perfectly with text links */
+.site-footer .brand-logo { 
+  height: 40px; 
+  width: auto;
+}
+
+.footer-links { 
+  display: flex; 
+  gap: 20px; 
+  margin: 0; /* Remove any default margins */
+}
+
+
+
 .footer-brand svg{ width:16px; height:16px; color:var(--gold); }
 .footer-brand span{ font-family:var(--serif); font-size:1rem; }
-.footer-links{ display:flex; gap:26px; }
 .footer-links a{ font-size:0.78rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--slate); transition:color .25s; }
 .footer-links a:hover{ color:var(--gold); }
 .footer-copy{ font-size:0.76rem; color:#5b6672; }
