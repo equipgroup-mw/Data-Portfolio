@@ -23,8 +23,8 @@
 
 const PROJECTS = [
   {
-    id: "proto-poultry-dashboard",
-    title: "Proto Poultry Growth Monitor",
+    id: "journy-vsla-poultry",
+    title: "Journey of a VSLA's Poultry Farm",
     client: "Proto / Hail & Cotton",
     platform: "Custom Build",
     url: "https://equipgroup-mw.github.io/proto-chickens-dashboard/",
@@ -43,8 +43,8 @@ const PROJECTS = [
     size: "normal"
   },
   {
-    id: "hail-cotton-vsla-tracker",
-    title: "VSLA Group Equity Tracker",
+    id: "financial-scaling-vsla",
+    title: "Financial Scaling of a Network of VSLA Groups",
     client: "Hail & Cotton",
     platform: "Looker Studio",
     url: "https://lookerstudio.google.com/",
@@ -63,8 +63,8 @@ const PROJECTS = [
     size: "normal"
   },
   {
-    id: "financial-inclusion-scaling",
-    title: "Financial Inclusion & Entrepreneurship Scaling",
+    id: "verification-financial-scaling",
+    title: "Verification of Financial & Entrepreneurial Scaling",
     client: "Zantchito",
     platform: "Tableau",
     url: "https://equipgroup-mw.github.io/Zantchito/",
