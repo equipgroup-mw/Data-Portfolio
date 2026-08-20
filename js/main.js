@@ -172,12 +172,14 @@
   }
 
   // ---------------------------------------------------------
+  // ---------------------------------------------------------
   // DYNAMIC VIEWPORT HEIGHT (Fixes mobile address bar jump)
   // ---------------------------------------------------------
   function setHeroHeight() {
     var hero = document.querySelector('.hero');
     if (hero) {
       // 100dvh handles modern browsers, but this is a fallback for older ones
+      // ADDED: 'px' to the end of this string so it applies correctly!
       hero.style.height = window.innerHeight + 'px';
     }
   }

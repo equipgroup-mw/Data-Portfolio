@@ -47,13 +47,13 @@ const PROJECTS = [
     title: "Financial Scaling of a Network of VSLA Groups",
     client: "Hail & Cotton",
     platform: "Looker Studio",
-    url: "https://lookerstudio.google.com/",
+    url: "https://datastudio.google.com/s/kJtdPbv5rQA",
     thumbnail: "assets/thumbs/H&C.jpg", // Matches H&C.jpg
     accent: "slate",
     size: "tall"
   },
   {
-    id: "ngo-impact-on-nation",
+    id: "pop-ngo-impact-on-nation",
     title: "NGO's Impact on the Nation",
     client: "Point of Progress",
     platform: "Custom Build",

@@ -24,6 +24,9 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <!-- Decorative drifting pattern background -->
+    <div class="hero-pattern" aria-hidden="true"></div>
+
     <div class="container hero-inner">
       <div class="hero-text">
         <span class="eyebrow">Data &amp; Insights Portfolio</span>
@@ -141,5 +144,19 @@
 
 <script src="js/projects.js"></script>
 <script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const viewDashBtn = document.querySelector('.btn-gold');
+    
+    if (viewDashBtn) {
+      viewDashBtn.addEventListener('click', () => {
+        // Add the class that triggers the CSS slow-down
+        document.body.classList.add('slowed');
+        
+        // Let the smooth browser scroll handle the rest (#work)
+      });
+    }
+  });
+</script>
 </body>
 </html>
