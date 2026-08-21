@@ -97,7 +97,7 @@ const PROJECTS = [
     title: "Productivity & Growth of a Mega Farm",
     client: "Elim Farms",
     platform: "Custom Build",
-    url: "https://equipgroup-mw.github.io/ElimFarms/",
+    url: "https://equipgroup-mw.github.io/DemoFarms-Dummy/",
     thumbnail: "assets/thumbs/elim.png", // Matches elimfarms.png
     accent: "navy",
     size: "wide"
