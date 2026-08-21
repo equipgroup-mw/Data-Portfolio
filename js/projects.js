@@ -27,7 +27,7 @@ const PROJECTS = [
     title: "Journey of a VSLA's Poultry Farm",
     client: "Proto / Hail & Cotton",
     platform: "Custom Build",
-    url: "https://equipgroup-mw.github.io/proto-chickens-dashboard/",
+    url: "https://equipgroup-mw.github.io/proto-v1/",
     thumbnail: "assets/thumbs/proto.jpg", // Matches proto.jpg
     accent: "gold",
     size: "wide"
